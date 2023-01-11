@@ -20,7 +20,7 @@ function Grafica() {
           "#f3ba2f",
           "#2a71d0",
         ],
-        borderColor: "black",
+        borderColor: "blue",
         borderWidth: 2,
       }, {
         label: "Temperatura",
