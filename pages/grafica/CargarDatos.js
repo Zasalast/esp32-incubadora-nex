@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import DataDisplayer from './DataDisplayer';
+
 import axios from 'axios';
-axios.defaults.withCredentials = true;  // Habilitamos las cookies de sesión en las solicitudes
-axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
+
 function CargarDatos() {
     const [data, setData] = useState(null);
     const [error, setError] = useState(null);
