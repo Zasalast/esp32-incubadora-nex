@@ -40,18 +40,18 @@
   --card-border-rgb: 131, 134, 135;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
 
-    --primary-glow: radial-gradient(rgba(1, 65, 255, 0.4), rgba(1, 65, 255, 0));
+    --primary-glow: radial-gradient(rgba(128, 159, 255, 0.4), rgba(246, 230, 230, 0.856));
     --secondary-glow: linear-gradient(
       to bottom right,
-      rgba(1, 65, 255, 0),
-      rgba(1, 65, 255, 0),
-      rgba(1, 65, 255, 0.3)
+      rgba(199, 211, 247, 0.715),
+      rgba(169, 173, 183, 0.448),
+      rgba(111, 146, 249, 0.3)
     );
 
     --tile-start-rgb: 2, 13, 46;
@@ -61,7 +61,7 @@
       #ffffff40,
       #ffffff30,
       #ffffff20,
-      #ffffff10,
+      #ffffff88,
       #ffffff10,
       #ffffff80
     );
@@ -71,7 +71,7 @@
     --card-rgb: 100, 100, 100;
     --card-border-rgb: 200, 200, 200;
   }
-}
+} */
 
 * {
   box-sizing: border-box;
