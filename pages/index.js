@@ -4,7 +4,7 @@ import { Inter } from '@next/font/google'
 import styles from '../styles/Home.module.css'
 import Grafica from './grafica/Grafica.js'
 import About from './about/About.js'
-import TemperatureHumidityChart from './grafica/TemperatureHumidityChart'
+
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
@@ -22,7 +22,7 @@ export default function Home() {
         <About />
 
         <Grafica />
-        {/*  <TemperatureHumidityChart /> */}
+
         {console.log("hola vercel")}
       </main>
     </>
