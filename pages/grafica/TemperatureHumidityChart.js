@@ -7,7 +7,7 @@ function TemperatureHumidityChart() {
     const [data, setData] = useState({ temperature: [], humidity: [] });
     // State para indicar si los datos están cargando o si ha ocurrido un error
     const [isLoading, setIsLoading] = useState(true);
-    const [hasError, setHasError] = useState(false);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
         async function fetchData() {
@@ -17,14 +17,14 @@ function TemperatureHumidityChart() {
                 const { temperatureData, humidityData } = response.data;
                 // Actualizar el estado con los datos obtenidos
                 setData({
-                    temperature: temperatureData,
-                    humidity: humidityData
+                    temperature: temperatureData.slice(-30),
+                    humidity: humidityData.slice(-30)
                 });
                 // Indicar que los datos ya se han cargado
                 setIsLoading(false);
-            } catch (error) {
-                // Indicar que ha ocurrido un error al cargar los datos
-                setHasError(true);
+            } catch (err) {
+                // Mostrar el error
+                setError(err);
             }
         }
         fetchData();
@@ -34,8 +34,8 @@ function TemperatureHumidityChart() {
         return <p>Loading...</p>;
     }
 
-    if (hasError) {
-        return <p>An error occurred.</p>;
+    if (error) {
+        return <p>An error occurred: {error.message}</p>;
     }
 
     const chartData = {
@@ -58,10 +58,21 @@ function TemperatureHumidityChart() {
         ],
     };
 
+    const options = {
+        scales: {
+            y: {
+                min: 20,
+                max: 120
+            }
+        }
+    }
+
     return (
         <Line
             data={chartData}
+            options={options}
         />
     )
 }
+
 export default TemperatureHumidityChart;
