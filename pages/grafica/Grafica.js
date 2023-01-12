@@ -11,6 +11,12 @@ function Grafica() {
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
 
+  // State to store the selected filter
+  const [filter, setFilter] = useState({
+    dataPoints: 100,
+    dateRange: 'week',
+  });
+
   useEffect(() => {
     async function fetchData() {
       try {
@@ -20,12 +26,6 @@ function Grafica() {
         // Filtar solo los datos necesarios
         console.log("reads");
         console.table(reads.reads);
-        /*  const filteredData = response.data.body.map(reads, item => ({
-           ts: new Date(item.ts).toLocaleString(),
-           Humedad: item.Humedad,
-           Temperatura: item.Temperatura,
-         })); */
-        // Actualizar el estado con los datos obtenidos
 
         setData(reads.reads);
         // Indicar que los datos ya se han cargado
@@ -50,7 +50,7 @@ function Grafica() {
     socket.onmessage = (event) => {
       const newData = JSON.parse(event.data);
       // Add new data to the beginning of the data array
-      setData([newData, ...data].slice(0, 100));
+      setData([newData, ...data].slice(0, filter.dataPoints));
     };
 
     socket.onclose = () => {
@@ -62,6 +62,12 @@ function Grafica() {
     console.error(error);
     alert("An error occurred while trying to fetch data. Please try again later.");
   };
+
+  const handleFilterChange = (event) => {
+    const { name, value } = event.target;
+    setFilter({ ...filter, [name]: value });
+  };
+
   if (isLoading) {
     return <p>Loading...</p>;
   }
@@ -69,36 +75,18 @@ function Grafica() {
   if (hasError) {
     return <p>An error occurred.</p>;
   }
-  const data2 = [
-    { "ts": 1672933763726, "Humedad": 65, "mac_Id": "98:f4:ab:07:0c:e0", "Temperatura": 30.8 }, { "ts": 1672933825285, "Humedad": 64, "mac_Id": "98:f4:ab:07:0c:e0", "Temperatura": 30.8 }
-  ];
-
   return (
+
     <div className={styles.chart}>
-      {/* <ResponsiveContainer width="100%" height={360}>
-
-
-        <LineChart
-          width={360}
-          height={360}
-          data={data}
-          margin={{
-            top: 5,
-            right: 30,
-            left: 20,
-            bottom: 5,
-          }}
-        >
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="ts" />
-          <YAxis />
-          <Tooltip />
-          <Legend />
-          <Line type="monotone" dataKey="Humedad" stroke="#8884d8" activeDot={{ r: 8 }} />
-          <Line type="monotone" dataKey="Temperatura" stroke="#82ca9d" />
-        </LineChart>
-
-      </ResponsiveContainer> */}
+      {/*  <div><label>Number of Data Points:</label>
+        <input type="number" name="dataPoints" value={filter.dataPoints} onChange={handleFilterChange} />
+        <br />
+        <label>Date Range:</label>
+        <select name="dateRange" value={filter.dateRange} onChange={handleFilterChange}>
+          <option value="week">Last Week</option>
+          <option value="month">Last Month</option>
+        </select>
+      </div> */}
       <ResponsiveContainer width="100%" height={360}>
         <LineChart
           width={360}
@@ -120,10 +108,7 @@ function Grafica() {
           <Line type="monotone" dataKey="Temperatura" stroke="#82ca9d" />
         </LineChart>
       </ResponsiveContainer>
-
-
     </div>
   );
 }
-
 export default Grafica;
