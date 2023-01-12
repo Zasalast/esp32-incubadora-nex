@@ -41,7 +41,7 @@ function Grafica() {
     }
     fetchData();
     // create websocket connection
-    const socket = new WebSocket('ws://b2luadwf3k.execute-api.us-east-1.amazonaws.com/reads');
+    const socket = new WebSocket('wss://b2luadwf3k.execute-api.us-east-1.amazonaws.com/reads');
 
     socket.onopen = () => {
       console.log('WebSocket connection opened');
@@ -78,7 +78,7 @@ function Grafica() {
   return (
 
     <div className={styles.chart}>
-      {/*  <div><label>Number of Data Points:</label>
+      <div><label>Number of Data Points:</label>
         <input type="number" name="dataPoints" value={filter.dataPoints} onChange={handleFilterChange} />
         <br />
         <label>Date Range:</label>
@@ -86,7 +86,7 @@ function Grafica() {
           <option value="week">Last Week</option>
           <option value="month">Last Month</option>
         </select>
-      </div> */}
+      </div>
       <ResponsiveContainer width="100%" height={360}>
         <LineChart
           width={360}
