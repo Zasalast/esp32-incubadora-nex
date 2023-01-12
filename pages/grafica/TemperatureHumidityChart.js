@@ -64,3 +64,4 @@ function TemperatureHumidityChart() {
         />
     )
 }
+export default TemperatureHumidityChart;
