@@ -1,8 +1,6 @@
 import { useState } from "react";
 import LineChart from "./LineChart.js";
 
-
-
 import { ClimaData, UserData, TemperaturaData, HumedadData } from "./Data.js";
 
 function Grafica() {
@@ -39,7 +37,7 @@ function Grafica() {
   });
 
 
-  // IF YOU SEE THIS COMMENT: I HAVE GOOD EYESIGHT
+
 
   return (
     <div >
