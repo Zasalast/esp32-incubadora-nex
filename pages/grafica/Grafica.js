@@ -1,54 +1,79 @@
-import { useState } from "react";
-import LineChart from "./LineChart.js";
-
-//import { ClimaData, UserData, TemperaturaData, HumedadData } from "../../Lib/Data.js";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { Line } from 'react-chartjs-2';
 
 function Grafica() {
-  if (!data) {
-    const datapoints = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120];
-    const [climaData, setHumedadData] = useState({
-      labels: datapoints,
-      datasets: [
-        {
-          label: "Humedad",
-          data: ClimaData.map((data) => data.Humedad),
-          backgroundColor: [
-            "rgba(75,192,192,1)",
-            "#ecf0f1",
-            "#50AF95",
-            "#f3ba2f",
-            "#2a71d0",
-          ],
-          borderColor: "black",
-          borderWidth: 2,
-        }, {
-          label: "Temperatura",
-          data: ClimaData.map((data) => data.Temperatura),
-          backgroundColor: [
-            "rgba(75,192,192,1)",
-            "#ecf0f1",
-            "#50AF95",
-            "#f3ba2f",
-            "#2a71d0",
-          ],
-          borderColor: "red",
-          borderWidth: 2,
-        },
-      ],
-    });
+  // State para guardar los datos de temperatura y humedad
+  const [data, setData] = useState({ temperature: [], humidity: [] });
+  // State para indicar si los datos están cargando o si ha ocurrido un error
+  const [isLoading, setIsLoading] = useState(true);
+  const [hasError, setHasError] = useState(false);
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        // Obtener los datos de temperatura y humedad del endpoint
+        const response = await axios.get('https://b2luadwf3k.execute-api.us-east-1.amazonaws.com/reads');
+        const { temperatureData, humidityData } = response.data;
+        // Actualizar el estado con los datos obtenidos
+        setData({
+          temperature: temperatureData.slice(-30),
+          humidity: humidityData.slice(-30)
+        });
+        // Indicar que los datos ya se han cargado
+        setIsLoading(false);
+      } catch (error) {
+        // Indicar que ha ocurrido un error al cargar los datos
+        setHasError(true);
+      }
+    }
+    fetchData();
+  }, []);
+
+  if (isLoading) {
+    return <p>Loading...</p>;
   }
 
+  if (hasError) {
+    return <p>An error occurred.</p>;
+  }
 
+  const chartData = {
+    labels: data.temperature.map(({ date }) => date),
+    datasets: [
+      {
+        label: 'Temperature',
+        data: data.temperature.map(({ temperature }) => temperature),
+        backgroundColor: 'rgba(75,192,192,0.4)',
+        borderColor: 'rgba(75,192,192,1)',
+        borderWidth: 1,
+      },
+      {
+        label: 'Humidity',
+        data: data.humidity.map(({ humidity }) => humidity),
+        backgroundColor: 'rgba(255, 99, 132, 0.4)',
+        borderColor: 'rgba(255, 99, 132, 1)',
+        borderWidth: 1
+      }
+    ],
+  };
 
-
+  const options = {
+    scales: {
+      y: {
+        min: 20,
+        max: 120
+      }
+    }
+  }
 
   return (
-    <div >
-      {/*  <div style={{ width: 700 }}>
-        <LineChart chartData={climaData} />
-      </div> */}grafica
-    </div>
-  );
+    <Line
+      data={chartData}
+      options={options}
+    />
+  )
 }
+
 
 export default Grafica;
