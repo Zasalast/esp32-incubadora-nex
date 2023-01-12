@@ -14,7 +14,10 @@ function Grafica() {
       try {
         // Obtener los datos de temperatura y humedad del endpoint
         const response = await axios.get('https://b2luadwf3k.execute-api.us-east-1.amazonaws.com/reads');
+        { console.log(response) }
         const { Temperatura, Humedad } = response.data;
+        { console.log(response.data) }
+        { console.log(Temperatura) }
         // Actualizar el estado con los datos obtenidos
         setData({
           temperature: Temperatura.slice(-30),
@@ -23,6 +26,7 @@ function Grafica() {
         // Indicar que los datos ya se han cargado
         setIsLoading(false);
       } catch (error) {
+        { console.log(error) }
         // Indicar que ha ocurrido un error al cargar los datos
         setHasError(true);
       }

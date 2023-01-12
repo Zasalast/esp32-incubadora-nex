@@ -18,6 +18,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
+        <h1>Grafica de Temperatura y Humedad de Incubadora</h1>
         <About />
         hola mundo
         <Grafica />
