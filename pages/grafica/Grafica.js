@@ -41,9 +41,9 @@ function Grafica() {
 
   return (
     <div >
-      <div style={{ width: 700 }}>
+      {/*  <div style={{ width: 700 }}>
         <LineChart chartData={climaData} />
-      </div>
+      </div> */}grafica
     </div>
   );
 }
