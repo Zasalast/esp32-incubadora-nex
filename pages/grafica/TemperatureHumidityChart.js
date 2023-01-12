@@ -14,11 +14,11 @@ function TemperatureHumidityChart() {
             try {
                 // Obtener los datos de temperatura y humedad del endpoint
                 const response = await axios.get('https://b2luadwf3k.execute-api.us-east-1.amazonaws.com/reads');
-                const { temperatureData, humidityData } = response.data;
+                const { Temperatura, Humedad } = response.data;
                 // Actualizar el estado con los datos obtenidos
                 setData({
-                    temperature: temperatureData.slice(-30),
-                    humidity: humidityData.slice(-30)
+                    temperature: Temperatura.slice(-30),
+                    humidity: Humedad.slice(-30)
                 });
                 // Indicar que los datos ya se han cargado
                 setIsLoading(false);
