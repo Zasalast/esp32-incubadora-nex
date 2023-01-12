@@ -1,7 +1,7 @@
-export const ClimaData = [
+const ClimaData = [
   { "ts": 1672933763726, "Humedad": 65, "mac_Id": "98:f4:ab:07:0c:e0", "Temperatura": 30.8 }, { "ts": 1672933825285, "Humedad": 64, "mac_Id": "98:f4:ab:07:0c:e0", "Temperatura": 30.8 }, { "ts": 1672933886131, "Humedad": 64, "mac_Id": "98:f4:ab:07:0c:e0", "Temperatura": 30.8 }, { "ts": 1672933946815, "Humedad": 64, "mac_Id": "98:f4:ab:07:0c:e0", "Temperatura": 30.8 }, { "ts": 1672934007566, "Humedad": 64, "mac_Id": "98:f4:ab:07:0c:e0", "Temperatura": 30.8 }, { "ts": 1672934068322, "Humedad": 64, "mac_Id": "98:f4:ab:07:0c:e0", "Temperatura": 30.8 }, { "ts": 1672934129214, "Humedad": 64, "mac_Id": "98:f4:ab:07:0c:e0", "Temperatura": 30.8 }, { "ts": 1672934189929, "Humedad": 63, "mac_Id": "98:f4:ab:07:0c:e0", "Temperatura": 31.3 }, { "ts": 1672934250710, "Humedad": 63, "mac_Id": "98:f4:ab:07:0c:e0", "Temperatura": 31.3 }, { "ts": 1672934311366, "Humedad": 64, "mac_Id": "98:f4:ab:07:0c:e0", "Temperatura": 31.3 }, { "ts": 1672934372268, "Humedad": 63, "mac_Id": "98:f4:ab:07:0c:e0", "Temperatura": 31.3 }, { "ts": 1672941920995, "Humedad": 55, "mac_Id": "98:f4:ab:07:0c:e0", "Temperatura": 32.8 }, { "ts": 1672941981709, "Humedad": 54, "mac_Id": "98:f4:ab:07:0c:e0", "Temperatura": 33.3 }, { "ts": 1673109927947, "Humedad": 84, "mac_Id": "98:f4:ab:07:0c:e0", "Temperatura": 25.3 }, { "ts": 1673109988770, "Humedad": 84, "mac_Id": "98:f4:ab:07:0c:e0", "Temperatura": 25.3 }, { "ts": 1673110049442, "Humedad": 83, "mac_Id": "98:f4:ab:07:0c:e0", "Temperatura": 25.3 }, { "ts": 1673110110239, "Humedad": 83, "mac_Id": "98:f4:ab:07:0c:e0", "Temperatura": 25.3 }, { "ts": 1673110170994, "Humedad": 83, "mac_Id": "98:f4:ab:07:0c:e0", "Temperatura": 25.8 }, { "ts": 1673110231743, "Humedad": 82, "mac_Id": "98:f4:ab:07:0c:e0", "Temperatura": 25.8 }, { "ts": 1673110293075, "Humedad": 82, "mac_Id": "98:f4:ab:07:0c:e0", "Temperatura": 25.8 }, { "ts": 1673110353835, "Humedad": 82, "mac_Id": "98:f4:ab:07:0c:e0", "Temperatura": 25.8 }, { "ts": 1673110414687, "Humedad": 82, "mac_Id": "98:f4:ab:07:0c:e0", "Temperatura": 25.8 }, { "ts": 1673110475409, "Humedad": 81, "mac_Id": "98:f4:ab:07:0c:e0", "Temperatura": 25.8 }, { "ts": 1673110536107, "Humedad": 81, "mac_Id": "98:f4:ab:07:0c:e0", "Temperatura": 25.8 }, { "ts": 1673110596884, "Humedad": 81, "mac_Id": "98:f4:ab:07:0c:e0", "Temperatura": 25.8 }, { "ts": 1673110657608, "Humedad": 81, "mac_Id": "98:f4:ab:07:0c:e0", "Temperatura": 25.8 }, { "ts": 1673110718366, "Humedad": 81, "mac_Id": "98:f4:ab:07:0c:e0", "Temperatura": 25.8 }, { "ts": 1673110779139, "Humedad": 81, "mac_Id": "98:f4:ab:07:0c:e0", "Temperatura": 25.8 }, { "ts": 1673110839893, "Humedad": 81, "mac_Id": "98:f4:ab:07:0c:e0", "Temperatura": 25.8 }, { "ts": 1673110900682, "Humedad": 81, "mac_Id": "98:f4:ab:07:0c:e0", "Temperatura": 25.8 }, { "ts": 1673110961418, "Humedad": 81, "mac_Id": "98:f4:ab:07:0c:e0", "Temperatura": 25.8 }, { "ts": 1673111022204, "Humedad": 81, "mac_Id": "98:f4:ab:07:0c:e0", "Temperatura": 25.8 }, { "ts": 1673111082945, "Humedad": 81, "mac_Id": "98:f4:ab:07:0c:e0", "Temperatura": 25.8 }, { "ts": 1673111143698, "Humedad": 81, "mac_Id": "98:f4:ab:07:0c:e0", "Temperatura": 25.8 }, { "ts": 1673111204492, "Humedad": 81, "mac_Id": "98:f4:ab:07:0c:e0", "Temperatura": 25.8 }, { "ts": 1673111265219, "Humedad": 81, "mac_Id": "98:f4:ab:07:0c:e0", "Temperatura": 25.8 }, { "ts": 1673111325990, "Humedad": 81, "mac_Id": "98:f4:ab:07:0c:e0", "Temperatura": 25.8 }, { "ts": 1673111386748, "Humedad": 81, "mac_Id": "98:f4:ab:07:0c:e0", "Temperatura": 25.8 }, { "ts": 1673111447563, "Humedad": 81, "mac_Id": "98:f4:ab:07:0c:e0", "Temperatura": 25.8 }, { "ts": 1673111508296, "Humedad": 81, "mac_Id": "98:f4:ab:07:0c:e0", "Temperatura": 25.8 }, { "ts": 1673111569021, "Humedad": 81, "mac_Id": "98:f4:ab:07:0c:e0", "Temperatura": 25.8 }, { "ts": 1673111629777, "Humedad": 81, "mac_Id": "98:f4:ab:07:0c:e0", "Temperatura": 25.8 }, { "ts": 1673111690538, "Humedad": 81, "mac_Id": "98:f4:ab:07:0c:e0", "Temperatura": 25.8 }, { "ts": 1673111751295, "Humedad": 81, "mac_Id": "98:f4:ab:07:0c:e0", "Temperatura": 25.8 }, { "ts": 1673111812079, "Humedad": 81, "mac_Id": "98:f4:ab:07:0c:e0", "Temperatura": 25.8 }, { "ts": 1673111872831, "Humedad": 81, "mac_Id": "98:f4:ab:07:0c:e0", "Temperatura": 25.8 },
 ];
-export const UserData = [
+const UserData = [
   {
     id: 1,
     year: 2016,
@@ -33,7 +33,7 @@ export const UserData = [
     userLost: 234,
   },
 ];
-export const TemperaturaData = [
+const TemperaturaData = [
   {
     id: 1,
     centigrados: 5,
@@ -76,7 +76,7 @@ export const TemperaturaData = [
   },
 ];
 
-export const HumedadData = [
+const HumedadData = [
   {
     id: 1,
     Humedad: 10,
@@ -118,3 +118,4 @@ export const HumedadData = [
     Humedad: 100,
   },
 ];
+export { ClimaData, UserData, TemperaturaData, HumedadData }

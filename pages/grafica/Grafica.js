@@ -1,7 +1,7 @@
 import { useState } from "react";
 import LineChart from "./LineChart.js";
 
-import { ClimaData, UserData, TemperaturaData, HumedadData } from "./Data.js";
+import { ClimaData, UserData, TemperaturaData, HumedadData } from "../../Lib/Data.js";
 
 function Grafica() {
   const datapoints = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120];
