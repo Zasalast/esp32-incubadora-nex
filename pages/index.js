@@ -20,9 +20,9 @@ export default function Home() {
       <main className={styles.main}>
         <h1>Grafica de Temperatura y Humedad de Incubadora</h1>
         <About />
-        hola mundo
+
         <Grafica />
-        <TemperatureHumidityChart />
+        {/*  <TemperatureHumidityChart /> */}
         {console.log("hola vercel")}
       </main>
     </>
