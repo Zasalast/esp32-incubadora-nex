@@ -19,8 +19,11 @@
     "next": "13.1.1",
     "react": "18.2.0",
     "react-chartjs-2": "^5.2.0",
+    "react-d3-library": "^1.1.8",
     "react-dom": "18.2.0",
     "react-linechart": "^1.1.12",
+    "react-thermometer-component": "^1.0.1",
+    "react-weather": "^0.1.3",
     "recharts": "^2.3.1"
   }
 }

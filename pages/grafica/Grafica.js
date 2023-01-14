@@ -3,6 +3,8 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Responsi
 import styles from '../../styles/Grafica.module.css'
 import _ from 'lodash';
 import axios from 'axios';
+import moment from 'moment';
+
 
 function Grafica() {
   // State para guardar los datos de temperatura y humedad
@@ -18,27 +20,78 @@ function Grafica() {
   });
 
   useEffect(() => {
+    /*    async function fetchData() {
+         try {
+           // Obtener los datos de temperatura y humedad del endpoint
+           const response = await axios.get('https://b2luadwf3k.execute-api.us-east-1.amazonaws.com/reads');
+           let fechaHora = moment();
+           let anio = fechaHora.year();
+           let mes = fechaHora.month();
+           let dia = fechaHora.date();
+           let horas = fechaHora.hours();
+           let minutos = fechaHora.minutes();
+           let segundos = fechaHora.seconds();
+           console.log(` ${dia} /${mes}/${anio}, ${horas}:${minutos}:${segundos}`);
+           const reads = response.data.body;
+           console.log(reads)
+           // Filtar solo los datos necesarios
+           console.log("reads");
+           console.table(reads.reads);
+   
+           setData(reads.reads);
+           // Indicar que los datos ya se han cargado
+           setIsLoading(false);
+         } catch (error) {
+           // Utilizar un manejador de errores global para mostrar un mensaje de error más específico
+   
+   
+           handleError(error);
+           // Indicar que ha ocurrido un error al cargar los datos
+           setHasError(true);
+         }
+       } */
+
     async function fetchData() {
       try {
         // Obtener los datos de temperatura y humedad del endpoint
         const response = await axios.get('https://b2luadwf3k.execute-api.us-east-1.amazonaws.com/reads');
-        const reads = response.data.body;
-        // Filtar solo los datos necesarios
-        console.log("reads");
-        console.table(reads.reads);
-
-        setData(reads.reads);
+        // Destructurar el JSON para obtener los datos que necesitas
+        const { reads } = response.data.body;
+        // Iterar sobre el arreglo de reads
+        for (let i = 0; i < reads.length; i++) {
+          // Utilizar la función moment() para parsear la fecha y hora en un objeto de momento
+          const fechaHora = moment(reads[i].Fecha_hora);
+          // Utilizar las funciones del objeto de momento para obtener los valores de día, mes, año, horas, minutos y segundos
+          const day = fechaHora.date();
+          const month = fechaHora.month() + 1;
+          const year = fechaHora.year();
+          const hour = fechaHora.hour();
+          const minute = fechaHora.minute();
+          const second = fechaHora.second();
+          // Crear una variable para almacenar la fecha y hora en el formato deseado
+          const fechaHoraFormateada = `${day}/${month}/${year},${hour}:${minute}:${second};`
+          // Crear un nuevo objeto con la fecha y hora formateada
+          const newRead = {
+            ...reads[i],
+            Fecha_hora: fechaHoraFormateada,
+          };
+          // Reemplazar el elemento del arreglo original con el nuevo objeto
+          reads[i] = newRead;
+        }
+        // Asignar el arreglo de reads con los nuevos objetos a setData para actualizar el estado y mostrarlos en la gráfica
+        console.log("Datos", reads)
+        setData(reads);
         // Indicar que los datos ya se han cargado
         setIsLoading(false);
       } catch (error) {
         // Utilizar un manejador de errores global para mostrar un mensaje de error más específico
-
-
         handleError(error);
         // Indicar que ha ocurrido un error al cargar los datos
         setHasError(true);
       }
     }
+
+
     fetchData();
     // create websocket connection
     const socket = new WebSocket('wss://b2luadwf3k.execute-api.us-east-1.amazonaws.com/reads');
@@ -57,6 +110,7 @@ function Grafica() {
       console.log('WebSocket connection closed');
     };
     return () => socket.close();
+
   }, []);
   const handleError = (error) => {
     console.error(error);
@@ -92,6 +146,28 @@ function Grafica() {
           width={360}
           height={360}
           data={data}
+        /*     margin={{
+              top: 5,
+              right: 30,
+              left: 20,
+              bottom: 5,
+            }} */
+        >
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="Fecha_hora" />
+          <YAxis />
+          <Tooltip />
+          <Legend />
+          <Line type="monotone" dataKey="Humedad1" stroke="#8884d8" activeDot={{ r: 8 }} />
+          <Line type="monotone" dataKey="Humedad2" stroke="#82ca9d" />
+        </LineChart>
+
+      </ResponsiveContainer>
+      <ResponsiveContainer width="100%" height={360}>
+        <LineChart
+          width={360}
+          height={360}
+          data={data}
           margin={{
             top: 5,
             right: 30,
@@ -100,13 +176,14 @@ function Grafica() {
           }}
         >
           <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="ts" />
+          <XAxis dataKey={data.Fecha_hora} />
           <YAxis />
           <Tooltip />
           <Legend />
-          <Line type="monotone" dataKey="Humedad" stroke="#8884d8" activeDot={{ r: 8 }} />
-          <Line type="monotone" dataKey="Temperatura" stroke="#82ca9d" />
+          <Line type="monotone" dataKey="Temperatura1" stroke="#8884d8" activeDot={{ r: 8 }} />
+          <Line type="monotone" dataKey="Temperatura2" stroke="#82ca9d" />
         </LineChart>
+
       </ResponsiveContainer>
     </div>
   );
