@@ -7,6 +7,7 @@ import moment from 'moment';
 
 
 function Grafica() {
+
   // State para guardar los datos de temperatura y humedad
   const [data, setData] = useState([]);
   // State para indicar si los datos están cargando o si ha ocurrido un error
@@ -20,36 +21,6 @@ function Grafica() {
   });
 
   useEffect(() => {
-    /*    async function fetchData() {
-         try {
-           // Obtener los datos de temperatura y humedad del endpoint
-           const response = await axios.get('https://b2luadwf3k.execute-api.us-east-1.amazonaws.com/reads');
-           let fechaHora = moment();
-           let anio = fechaHora.year();
-           let mes = fechaHora.month();
-           let dia = fechaHora.date();
-           let horas = fechaHora.hours();
-           let minutos = fechaHora.minutes();
-           let segundos = fechaHora.seconds();
-           console.log(` ${dia} /${mes}/${anio}, ${horas}:${minutos}:${segundos}`);
-           const reads = response.data.body;
-           console.log(reads)
-           // Filtar solo los datos necesarios
-           console.log("reads");
-           console.table(reads.reads);
-   
-           setData(reads.reads);
-           // Indicar que los datos ya se han cargado
-           setIsLoading(false);
-         } catch (error) {
-           // Utilizar un manejador de errores global para mostrar un mensaje de error más específico
-   
-   
-           handleError(error);
-           // Indicar que ha ocurrido un error al cargar los datos
-           setHasError(true);
-         }
-       } */
 
     async function fetchData() {
       try {
@@ -76,7 +47,16 @@ function Grafica() {
             Fecha_hora: fechaHoraFormateada,
           };
           // Reemplazar el elemento del arreglo original con el nuevo objeto
-          reads[i] = newRead;
+          let filteredData = [newRead, ...data];
+          if (filter.dateRange === 'week') {
+            const oneWeekAgo = moment().subtract(7, 'days');
+            filteredData = filteredData.filter((read) => moment(read.Fecha_hora).isAfter(oneWeekAgo));
+          } else if (filter.dateRange === 'month') {
+            const oneMonthAgo = moment().subtract(1, 'months');
+            filteredData = filteredData.filter((read) => moment(read.Fecha_hora).isAfter(oneMonthAgo));
+          }
+          // Apply data points filter
+          filteredData = _.take(filteredData, filter.data)
         }
         // Asignar el arreglo de reads con los nuevos objetos a setData para actualizar el estado y mostrarlos en la gráfica
         console.log("Datos", reads)
@@ -100,18 +80,32 @@ function Grafica() {
       console.log('WebSocket connection opened');
     };
 
+
     socket.onmessage = (event) => {
       const newData = JSON.parse(event.data);
       // Add new data to the beginning of the data array
-      setData([newData, ...data].slice(0, filter.dataPoints));
+      let filteredData = [newData, ...data];
+      // Apply date range filter
+      if (filter.dateRange === 'week') {
+        const oneWeekAgo = moment().subtract(7, 'days');
+        filteredData = filteredData.filter((read) => moment(read.Fecha_hora).isAfter(oneWeekAgo));
+      } else if (filter.dateRange === 'month') {
+        const oneMonthAgo = moment().subtract(1, 'months');
+        filteredData = filteredData.filter((read) => moment(read.Fecha_hora).isAfter(oneMonthAgo));
+      }
+      // Apply data points filter
+      filteredData = _.take(filteredData, filter.dataPoints);
+      setData(filteredData);
     };
 
     socket.onclose = () => {
       console.log('WebSocket connection closed');
     };
-    return () => socket.close();
 
-  }, []);
+    return () => {
+      socket.close();
+    };
+  }, [filter]);
   const handleError = (error) => {
     console.error(error);
     alert("An error occurred while trying to fetch data. Please try again later.");
@@ -141,10 +135,10 @@ function Grafica() {
           <option value="month">Last Month</option>
         </select>
       </div>
-      <ResponsiveContainer width="100%" height={360}>
+      <ResponsiveContainer width="100%" height={300}>
         <LineChart
-          width={360}
-          height={360}
+          width={300}
+          height={300}
           data={data}
         /*     margin={{
               top: 5,
@@ -154,16 +148,16 @@ function Grafica() {
             }} */
         >
           <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="Fecha_hora" />
+          <XAxis dataKey={data.Fecha_hora} />
           <YAxis />
           <Tooltip />
           <Legend />
           <Line type="monotone" dataKey="Humedad1" stroke="#8884d8" activeDot={{ r: 8 }} />
-          <Line type="monotone" dataKey="Humedad2" stroke="#82ca9d" />
+          <Line type="monotone" dataKey="Humedad1" stroke="#82ca9d" />
         </LineChart>
 
       </ResponsiveContainer>
-      <ResponsiveContainer width="100%" height={360}>
+      {/*    <ResponsiveContainer width="100%" height={360}>
         <LineChart
           width={360}
           height={360}
@@ -184,7 +178,7 @@ function Grafica() {
           <Line type="monotone" dataKey="Temperatura2" stroke="#82ca9d" />
         </LineChart>
 
-      </ResponsiveContainer>
+      </ResponsiveContainer> */}
     </div>
   );
 }

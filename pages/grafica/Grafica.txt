@@ -1,0 +1,23 @@
+import React, { useContext, useState, useEffect } from 'react';
+import Filter from './../../components/Filter';
+import DataFetcher from './../../components/DataFetcher';
+import DataRenderer from './../../components/DataRenderer';
+import DataContext from './../../context/DataProvider';
+
+
+function Grafica() {
+    const { data, filter, setFilter } = useContext(DataContext);
+
+    return (
+        <div>
+            <Filter filter={filter} setFilter={setFilter} />
+            <DataRenderer data={data} />
+        </div>
+    );
+}
+
+
+
+
+
+export default Grafica;
