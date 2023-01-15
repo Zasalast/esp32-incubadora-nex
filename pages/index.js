@@ -31,9 +31,10 @@ export default function Home() {
 
 
           <RelojWidget />
-          {/*   <TemperaturaWidget />
+          <TemperaturaWidget />
           <HumedadWidget />
-          <Temperaturawidget2 /> */}
+
+          <Temperaturawidget2 />
           <HumedadWidget2 /></Layout>
 
       </main>
