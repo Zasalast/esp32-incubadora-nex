@@ -60,8 +60,8 @@ function Temperaturawidget2() {
 
             <div>
                 <h6 >Temperatura Exterior</h6>
-                <h5 >
-                    {lastData.Temperatura2}C°</h5>
+                <h3 >
+                    {lastData.Temperatura2}C°</h3>
             </div>
             <div>
 

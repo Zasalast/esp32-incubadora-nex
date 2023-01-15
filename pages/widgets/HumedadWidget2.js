@@ -60,8 +60,8 @@ function HumedadWidget2() {
 
             <div>
                 <h6 >Humedad Exterior</h6>
-                <h5  >
-                    {lastData.Humedad1}%</h5>
+                <h3  >
+                    {lastData.Humedad1}%</h3>
             </div>
 
 
