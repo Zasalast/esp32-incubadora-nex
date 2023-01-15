@@ -12,6 +12,7 @@ import RelojWidget from './widgets/RelojWidget'
 import Temperaturawidget2 from './widgets/TemperaturaWidget2'
 import HumedadWidget2 from './widgets/HumedadWidget2'
 import Layout from '../components/Layout'
+import Header from '../components/Header'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -26,9 +27,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
+
         <Layout >
-
-
+          <Header />
+          <br /><br />
 
           <RelojWidget />
           <TemperaturaWidget />
