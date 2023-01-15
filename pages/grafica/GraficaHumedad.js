@@ -4,6 +4,7 @@ import styles from '../../styles/Grafica.module.css'
 import _ from 'lodash';
 import axios from 'axios';
 import moment from 'moment';
+import Layout from '../../components/Layout';
 
 
 function Grafica() {

@@ -4,8 +4,14 @@ import { Inter } from '@next/font/google'
 import styles from '../styles/Home.module.css'
 import GraficaTemeperatura from './grafica/GraficaTemperatura'
 import GraficaHumedad from './grafica/GraficaHumedad'
+import TemperaturaWidget from './widgets/TemperaturaWidget'
+import HumedadWidget from './widgets/HumedadWidget'
 import About from './about/About.js'
 import DataProvider from './../context/DataProvider'
+import RelojWidget from './widgets/RelojWidget'
+import Temperaturawidget2 from './widgets/TemperaturaWidget2'
+import HumedadWidget2 from './widgets/HumedadWidget2'
+import Layout from '../components/Layout'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -20,15 +26,16 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <h6>Grafica de  Humedad de Incubadora</h6>
+        <Layout >
 
 
-        <DataProvider>
-          <GraficaHumedad /> <h6>Grafica de Temperatura Incubadora</h6>
-          <GraficaTemeperatura />
-        </DataProvider>
 
-        {console.log("hola vercel")}
+          <RelojWidget />
+          {/*   <TemperaturaWidget />
+          <HumedadWidget />
+          <Temperaturawidget2 /> */}
+          <HumedadWidget2 /></Layout>
+
       </main>
     </>
   )

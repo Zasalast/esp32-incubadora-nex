@@ -3,7 +3,7 @@ import moment from 'moment';
 import axios from 'axios';
 
 
-function Temperaturawidget() {
+function Temperaturawidget2() {
     const [data, setData] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [hasError, setHasError] = useState(false);
@@ -59,9 +59,9 @@ function Temperaturawidget() {
         <div  >
 
             <div>
-                <h6 >Temperatura Criadora</h6>
+                <h6 >Temperatura Exterior</h6>
                 <h5 >
-                    {lastData.Temperatura1}C°</h5>
+                    {lastData.Temperatura2}C°</h5>
             </div>
             <div>
 
@@ -72,4 +72,4 @@ function Temperaturawidget() {
 
 }
 
-export default Temperaturawidget;
+export default Temperaturawidget2;

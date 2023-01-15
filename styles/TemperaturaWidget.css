@@ -1,0 +1,23 @@
+.container {
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.data {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.date {
+  font-size: 14px;
+}

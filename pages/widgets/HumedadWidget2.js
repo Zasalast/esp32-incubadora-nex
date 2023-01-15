@@ -3,7 +3,7 @@ import moment from 'moment';
 import axios from 'axios';
 
 
-function Temperaturawidget() {
+function HumedadWidget2() {
     const [data, setData] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [hasError, setHasError] = useState(false);
@@ -59,17 +59,17 @@ function Temperaturawidget() {
         <div  >
 
             <div>
-                <h6 >Temperatura Criadora</h6>
-                <h5 >
-                    {lastData.Temperatura1}C°</h5>
+                <h6 >Humedad Exterior</h6>
+                <h5  >
+                    {lastData.Humedad1}%</h5>
             </div>
-            <div>
 
-            </div>
+
+
 
         </div>
     );
 
 }
 
-export default Temperaturawidget;
+export default HumedadWidget2;
