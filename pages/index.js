@@ -33,11 +33,12 @@ export default function Home() {
           <Header />
           <br /><br />
           <CardContainer>
-            <TemperaturaWidget />
             <HumedadWidget />
+            <TemperaturaWidget />
+            <HumedadWidget2 />
 
             <Temperaturawidget2 />
-            <HumedadWidget2 /></CardContainer>
+          </CardContainer>
 
         </Layout>
       </main>
