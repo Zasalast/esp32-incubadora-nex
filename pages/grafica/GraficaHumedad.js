@@ -125,40 +125,40 @@ function Grafica() {
     return <p>An error occurred.</p>;
   }
   return (
+    <Layout>
+      <div className={styles.chart}>
+        <div><label>Number of Data Points:</label>
+          <input type="number" name="dataPoints" value={filter.dataPoints} onChange={handleFilterChange} />
+          <br />
+          <label>Date Range:</label>
+          <select name="dateRange" value={filter.dateRange} onChange={handleFilterChange}>
+            <option value="week">Last Week</option>
+            <option value="month">Last Month</option>
+          </select>
+        </div>
+        <ResponsiveContainer width="100%" height={300}>
+          <LineChart
+            width={300}
+            height={300}
+            data={data}
+          /*     margin={{
+                top: 5,
+                right: 30,
+                left: 20,
+                bottom: 5,
+              }} */
+          >
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey={data.Fecha_hora} />
+            <YAxis />
+            <Tooltip />
+            <Legend />
+            <Line type="monotone" dataKey="Humedad1" stroke="#8884d8" activeDot={{ r: 8 }} />
+            <Line type="monotone" dataKey="Humedad1" stroke="#82ca9d" />
+          </LineChart>
 
-    <div className={styles.chart}>
-      <div><label>Number of Data Points:</label>
-        <input type="number" name="dataPoints" value={filter.dataPoints} onChange={handleFilterChange} />
-        <br />
-        <label>Date Range:</label>
-        <select name="dateRange" value={filter.dateRange} onChange={handleFilterChange}>
-          <option value="week">Last Week</option>
-          <option value="month">Last Month</option>
-        </select>
-      </div>
-      <ResponsiveContainer width="100%" height={300}>
-        <LineChart
-          width={300}
-          height={300}
-          data={data}
-        /*     margin={{
-              top: 5,
-              right: 30,
-              left: 20,
-              bottom: 5,
-            }} */
-        >
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey={data.Fecha_hora} />
-          <YAxis />
-          <Tooltip />
-          <Legend />
-          <Line type="monotone" dataKey="Humedad1" stroke="#8884d8" activeDot={{ r: 8 }} />
-          <Line type="monotone" dataKey="Humedad1" stroke="#82ca9d" />
-        </LineChart>
-
-      </ResponsiveContainer>
-      {/*    <ResponsiveContainer width="100%" height={360}>
+        </ResponsiveContainer>
+        {/*    <ResponsiveContainer width="100%" height={360}>
         <LineChart
           width={360}
           height={360}
@@ -180,7 +180,8 @@ function Grafica() {
         </LineChart>
 
       </ResponsiveContainer> */}
-    </div>
+      </div>
+    </Layout>
   );
 }
 export default Grafica;
