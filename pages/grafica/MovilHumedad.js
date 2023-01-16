@@ -69,8 +69,8 @@ function MovilHumedad() {
                         <YAxis />
                         <Tooltip />
                         <Legend />
-                        <Line type="monotone" dataKey="Humedad11" stroke="#8884d8" activeDot={{ r: 8 }} />
-                        <Line type="monotone" dataKey="Temperatura2" stroke="#82ca9d" />
+                        <Line type="monotone" dataKey="Humedad1" stroke="#8884d8" activeDot={{ r: 8 }} />
+                        <Line type="monotone" dataKey="Humedad2" stroke="#82ca9d" />
                     </LineChart>
 
                 </ResponsiveContainer>
