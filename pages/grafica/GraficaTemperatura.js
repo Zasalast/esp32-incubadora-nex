@@ -127,14 +127,14 @@ function Grafica() {
   return (
     <Layout>
       <div className={styles.chart}>
-        <div><label>Number of Data Points:</label>
-          <input type="number" name="dataPoints" value={filter.dataPoints} onChange={handleFilterChange} />
+        <div><label>Grafica Temperatura:</label>
+          {/*       <input type="number" name="dataPoints" value={filter.dataPoints} onChange={handleFilterChange} /> */}
           <br />
-          <label>Date Range:</label>
+          {/*   <label>Date Range:</label>
           <select name="dateRange" value={filter.dateRange} onChange={handleFilterChange}>
             <option value="week">Last Week</option>
             <option value="month">Last Month</option>
-          </select>
+          </select> */}
         </div>
         <ResponsiveContainer width="100%" height={300}>
           <LineChart
