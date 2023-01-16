@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import _ from 'lodash';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import Layout from '../../components/Layout';
-
+import styles from '../../styles/Grafica.module.css'
 function MovilHumedad() {
     // State para guardar el último dato de humedad
     const [data, setData] = useState([]);
