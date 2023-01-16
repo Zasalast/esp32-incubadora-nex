@@ -19,7 +19,7 @@ const HeaderContainer = styled.div`
 `;
 
 const HeaderTitle = styled.h1`
-  font-size: 15px;
+  font-size: 20px;
   margin: 0;
   color: black;
 `;
@@ -30,7 +30,7 @@ const Nav = styled.nav`
 `;
 
 const NavLink = styled.a`
-  font-size: 17px;
+   font-size: 19px;
   color: black;
   margin-left: 16px;
   text-decoration: none;

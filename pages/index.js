@@ -14,7 +14,7 @@ import HumedadWidget2 from './widgets/HumedadWidget2'
 import Layout from '../components/Layout'
 import Header from '../components/Header'
 import CardContainer from '../components/CardContainer'
-
+import pollito from './../assets/imgpollito.jpg';
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
@@ -28,19 +28,21 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
+        <div className={styles.container}>
 
-        <Layout >
-          <Header />
-          <br /><br />
-          <CardContainer>
-            <HumedadWidget />
-            <TemperaturaWidget />
-            <HumedadWidget2 />
 
-            <Temperaturawidget2 />
-          </CardContainer>
+          <Layout >
+            <Header />
+            <br /><br />
+            <CardContainer>
+              <HumedadWidget />
+              <TemperaturaWidget />
+              <HumedadWidget2 />
 
-        </Layout>
+              <Temperaturawidget2 />
+            </CardContainer>
+            <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.blogs.es%2F6964d6%2Fpollitos%2F1366_2000.jpg&f=1&nofb=1&ipt=16501d1720f838393c1ed5e31d04c29f859fc14c8ef2d0b33ad4705c021d35d0&ipo=images" alt="pollito" />
+          </Layout>  </div>
       </main>
     </>
   )
