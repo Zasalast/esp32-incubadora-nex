@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import moment from 'moment';
 import axios from 'axios';
-
-
+import styles from '../../styles/card.module.css'
+import Card from '../../components/Card';
 function Temperaturawidget() {
     const [data, setData] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
@@ -56,18 +56,15 @@ function Temperaturawidget() {
     const lastData = data[data.length - 1];
 
     return (
-        <div  >
 
-            <div>
-                <h6 >Temperatura Criadora</h6>
-                <h3 >
-                    {lastData.Temperatura1}C°</h3>
-            </div>
-            <div>
+        <>
+            <Card title={lastData.Temperatura1} text="Temperatura Criadora" />
 
-            </div>
 
-        </div>
+        </ >
+
+
+
     );
 
 }

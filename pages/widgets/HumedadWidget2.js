@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import moment from 'moment';
 import axios from 'axios';
-
+import styles from '../../styles/card.module.css'
+import Card from '../../components/Card';
 
 function HumedadWidget2() {
     const [data, setData] = useState([]);
@@ -56,18 +57,13 @@ function HumedadWidget2() {
     const lastData = data[data.length - 1];
 
     return (
-        <div  >
 
-            <div>
-                <h6 >Humedad Exterior</h6>
-                <h3  >
-                    {lastData.Humedad1}%</h3>
-            </div>
+        <>
+            <Card title={lastData.Humedad2} text="Humedad Exterior" />
 
 
+        </ >
 
-
-        </div>
     );
 
 }

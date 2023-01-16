@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
-
+import styles from '../../styles/card.module.css'
+import Card from '../../components/Card';
 function RelojWidget() {
 
 
@@ -18,6 +19,7 @@ function RelojWidget() {
 
     return (
         <h1>
+
             {/* <a href="https://time.is/Florencia,_Departamento_del_Magdalena" id="time_is_link" rel="nofollow" style={{ fontSize: '36px' }}>
 
             </a> */}

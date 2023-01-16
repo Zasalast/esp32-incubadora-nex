@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import moment from 'moment';
 import axios from 'axios';
-
+import styles from '../../styles/card.module.css'
+import Card from '../../components/Card';
 
 function HumedadWidget() {
     const [data, setData] = useState([]);
@@ -56,18 +57,18 @@ function HumedadWidget() {
     const lastData = data[data.length - 1];
 
     return (
-        <div  >
 
-            <div>
-                <h6 >Humedad Criadora</h6>
-                <h3  >
-                    {lastData.Humedad1}%</h3>
-            </div>
+        <>
+            <Card title={lastData.Humedad1} text="Humedad Criadora" />
 
+
+        </ >
 
 
 
-        </div>
+
+
+
     );
 
 }

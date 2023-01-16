@@ -13,6 +13,7 @@ import Temperaturawidget2 from './widgets/TemperaturaWidget2'
 import HumedadWidget2 from './widgets/HumedadWidget2'
 import Layout from '../components/Layout'
 import Header from '../components/Header'
+import CardContainer from '../components/CardContainer'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -31,14 +32,14 @@ export default function Home() {
         <Layout >
           <Header />
           <br /><br />
+          <CardContainer>
+            <TemperaturaWidget />
+            <HumedadWidget />
 
-          <RelojWidget />
-          <TemperaturaWidget />
-          <HumedadWidget />
+            <Temperaturawidget2 />
+            <HumedadWidget2 /></CardContainer>
 
-          <Temperaturawidget2 />
-          <HumedadWidget2 /></Layout>
-
+        </Layout>
       </main>
     </>
   )
