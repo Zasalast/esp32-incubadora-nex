@@ -62,12 +62,12 @@ const Header = () => {
       <NavLink className='NavLink' href="/">
         <NavLink className='NavLink'>Temperatura y Humedad Actual</NavLink>
       </NavLink>
-      <NavLink className='NavLink' to="/grafica/GraficaTemperatura" onClick={() => router.push('/grafica/GraficaTemperatura')}>Historial de Datos </NavLink>
+      <NavLink className='NavLink' to="/grafica/GraficaHumedad" onClick={() => router.push('/grafica/GraficaHumedad')}>Historial de Datos </NavLink>
 
 
 
 
-    </Nav>
+    </Nav><br /><br />
     </HeaderContainer>
   );
 };
