@@ -1,34 +1,24 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from '../../styles/card.module.css'
 import Card from '../../components/Card';
+
 function RelojWidget() {
-
-
+    const [time, setTime] = useState(null);
 
     useEffect(() => {
-        const script = document.createElement('script');
-        script.src = '//widget.time.is/t.js';
-        script.async = true;
-
-        document.body.appendChild(script);
-
-        script.onload = () => {
-            time_is_widget.init({ Florencia__Departamento_del_Magdalena_z11b: {} });
+        const socket = new WebSocket('ws://localhost:8080');
+        socket.onmessage = (event) => {
+            setTime(event.data);
         }
+
+        return () => socket.close();
     }, []);
 
     return (
         <h1>
-
-            {/* <a href="https://time.is/Florencia,_Departamento_del_Magdalena" id="time_is_link" rel="nofollow" style={{ fontSize: '36px' }}>
-
-            </a> */}
-            <span id="Florencia__Departamento_del_Magdalena_z11b" style={{ fontSize: '36px' }}></span>
+            {time}
         </h1>
     );
 }
-
-
-
 
 export default RelojWidget

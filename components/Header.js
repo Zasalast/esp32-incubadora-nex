@@ -16,27 +16,39 @@ const HeaderContainer = styled.div`
   top: 0;
   width: 100%;
   z-index: 10;
+ 
 `;
 
 const HeaderTitle = styled.h1`
-  font-size: 20px;
+  font-size: 25px;
   margin: 0;
   color: black;
+ 
 `;
 
 const Nav = styled.nav`
   display: flex;
   align-items: center;
+    border: 1px solid #d9d9d9;
 `;
 
 const NavLink = styled.a`
-   font-size: 19px;
+   font-size: 30px;
   color: black;
   margin-left: 16px;
   text-decoration: none;
+   padding: 16px;
+  display: flex;
+  
+  
+ margin:10px;
+ 
+
+  border-radius: 10px;
   &:hover {
     text-decoration: underline;
   }
+
 `;
 
 const Header = () => {
@@ -47,10 +59,10 @@ const Header = () => {
 
 
 
-      <NavLink className='NavLink' href="/grafica/GraficaHumedad">
-        <NavLink className='NavLink'>Grafica Humedad</NavLink>
+      <NavLink className='NavLink' href="/">
+        <NavLink className='NavLink'>Temperatura y Humedad Actual</NavLink>
       </NavLink>
-      <NavLink className='NavLink' to="/grafica/GraficaTemperatura" onClick={() => router.push('/grafica/GraficaTemperatura')}>Grafica Temperatura</NavLink>
+      <NavLink className='NavLink' to="/grafica/GraficaTemperatura" onClick={() => router.push('/grafica/GraficaTemperatura')}>Historial de Datos </NavLink>
 
 
 

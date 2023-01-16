@@ -36,9 +36,31 @@ function Temperaturawidget() {
             }
         }
         fetchData();
-        const interval = setInterval(fetchData, 10000);
+        // create websocket connection
+        const socket = new WebSocket('wss://b2luadwf3k.execute-api.us-east-1.amazonaws.com/reads');
+
+        socket.onopen = () => {
+            console.log('WebSocket connection opened');
+        };
+
+        socket.onmessage = (event) => {
+            const newData = JSON.parse(event.data);
+            // Add new data to the beginning of the data array
+            setData([newData, ...data].slice(0, filter.dataPoints));
+        };
+
+        socket.onclose = () => {
+            console.log('WebSocket connection closed');
+        };
+        return () => socket.close();
+        setState({
+            activeIndex: 0,
+        });
+        const interval = setInterval(fetchData, 500);
         return () => clearInterval(interval);
-    }, []);
+    }, [data]);
+
+
 
     const handleError = (error) => {
         console.error(error);

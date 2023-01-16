@@ -7,10 +7,23 @@ const HeaderContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
- 
-
+ margin:10px;
+  background-color: #f2f2f2;
+  border: 1px solid #d9d9d9;
+  border-radius: 10px;
   width: 100%;
+    
+  
+  
+  &:hover {
+    text-decoration: underline;
+  }
  
+`;
+
+const NavLink = styled.a`
+ 
+  
 `;
 const Card = ({ title, text }) => {
     return (
@@ -19,7 +32,7 @@ const Card = ({ title, text }) => {
                 <h1>{title}</h1>
                 <p>{text}</p>
             </div>
-        </div></HeaderContainer>
+        </div><br /></HeaderContainer>
     );
 };
 

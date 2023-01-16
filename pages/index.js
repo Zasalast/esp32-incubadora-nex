@@ -35,12 +35,14 @@ export default function Home() {
             <Header />
             <br /><br />
             <CardContainer>
+              <RelojWidget />
               <HumedadWidget />
               <TemperaturaWidget />
               <HumedadWidget2 />
 
               <Temperaturawidget2 />
             </CardContainer>
+            <br /><br />
             <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.blogs.es%2F6964d6%2Fpollitos%2F1366_2000.jpg&f=1&nofb=1&ipt=16501d1720f838393c1ed5e31d04c29f859fc14c8ef2d0b33ad4705c021d35d0&ipo=images" alt="pollito" />
           </Layout>  </div>
       </main>

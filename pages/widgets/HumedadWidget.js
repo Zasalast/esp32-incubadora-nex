@@ -4,7 +4,7 @@ import axios from 'axios';
 import styles from '../../styles/card.module.css'
 import Card from '../../components/Card';
 
-function HumedadWidget() {
+function HumedadWidget2() {
     const [data, setData] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [hasError, setHasError] = useState(false);
@@ -37,7 +37,7 @@ function HumedadWidget() {
             }
         }
         fetchData();
-        const interval = setInterval(fetchData, 10000);
+        const interval = setInterval(fetchData, 1000);
         return () => clearInterval(interval);
     }, []);
 
@@ -59,18 +59,13 @@ function HumedadWidget() {
     return (
 
         <>
-            <Card title={lastData.Humedad1} text="Humedad Criadora" />
+            <Card title={lastData.Humedad2} text="Humedad Exterior" />
 
 
         </ >
-
-
-
-
-
 
     );
 
 }
 
-export default HumedadWidget;
+export default HumedadWidget2;
