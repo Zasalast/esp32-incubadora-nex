@@ -15,6 +15,8 @@ import CardContainer from '../components/CardContainer';
 import pollito from './../assets/pollito.jpg';
 import styled from 'styled-components';
 import Temperaturawidget from './widgets/TemperaturaWidget';
+import { UserContext } from './_app';
+import { useContext } from 'react';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -22,7 +24,7 @@ const MainContainer = styled.div` position: relative; display: flex; align - ite
 
 const BackgroundImage = styled.div` position: absolute; top: 0; left: 0; width: 100 %  ; height: 100 %; z - index: -1; opacity: 0.5`;;
 
-const BackgroundImageImg = styled.img` width: 100%; height: 100 %; object - fit: cover`;;
+const BackgroundImageImg = styled.img` width: 190%; height: 100 %; object - fit: cover`;;
 
 const WidgetsContainer = styled.div` position: relative; z - index: 1`;;
 const WidgetContainer = styled.div` display: flex; align - items: center; justify - content: space - between; width: 90 %; margin: 0 auto`;;
@@ -36,6 +38,9 @@ const WidgetData = styled.div` font-size: 36px; color: black; text - align: cent
 
 
 const Home = () => {
+  const value = useContext(UserContext);
+
+
   return (
     <>
       <Head>
@@ -45,11 +50,10 @@ const Home = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Layout>
+        <h1>{value}</h1>;
         <br /><br /><br /><br /><br />
         <MainContainer>
-          <BackgroundImage>
-            <BackgroundImageImg src={pollito} alt="pollito" />
-          </BackgroundImage>
+
           <WidgetsContainer>
             <WidgetContainer>
               <Widget>
@@ -73,7 +77,10 @@ const Home = () => {
                 </WidgetData>
               </Widget>
             </WidgetContainer>
-          </WidgetsContainer>
+          </WidgetsContainer> <BackgroundImage>
+            <BackgroundImageImg src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.blogs.es%2F6964d6%2Fpollitos%2F1366_2000.jpg&f=1&nofb=1&ipt=16501d1720f838393c1ed5e31d04c29f859fc14c8ef2d0b33ad4705c021d35d0&ipo=images" alt="pollito" />
+
+          </BackgroundImage>
         </MainContainer>
       </Layout>
     </>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, PureComponent } from 'react';
+import React, { useState, useEffect, PureComponent, useContext } from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import styles from '../../styles/Grafica.module.css'
 import _ from 'lodash';
@@ -6,18 +6,18 @@ import axios from 'axios';
 import moment from 'moment';
 import Layout from '../../components/Layout';
 
-
 function GraficaHumedad() {
+  //const data = useDataContext();
   // State para guardar los datos de temperatura y humedad
-  const [data, setData] = useState([]);
+  const [data, setData] = useState({})
   // State para indicar si los datos están cargando o si ha ocurrido un error
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
-  // State to store the selected filter
-  const [filter, setFilter] = useState({
-    dataPoints: 100,
-    dateRange: 'week',
-  });
+  /*   // State to store the selected filter
+    const [filter, setFilter] = useState({
+      dataPoints: 100,
+      dateRange: 'week',
+    }); */
 
   useEffect(() => {
 
@@ -79,6 +79,16 @@ function GraficaHumedad() {
     return () => socket.close();
 
   }, []);
+
+  /*   useEffect(() => {
+      if (dataContext) {
+        setData(dataContext);
+        setIsLoading(false);
+      } else {
+        setHasError(true);
+      }
+    }, [dataContext]); */
+
   const handleError = (error) => {
     console.error(error);
     alert("An error occurred while trying to fetch data. Please try again later.");

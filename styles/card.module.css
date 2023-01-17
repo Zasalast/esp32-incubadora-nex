@@ -1,6 +1,7 @@
 .card-container {
   display   : flex;
   background: transparent;
+  opacity   : 0.5
 }
 
 .cards {
@@ -11,6 +12,8 @@
   border-radius        : 10px;
   padding              : 10px;
   margin-right         : 10px;
+  background           : transparent;
+  opacity              : 0.5
 }
 
 .card {
@@ -24,6 +27,8 @@
   display                 : flex;
   align-items             : center;
   justify-content         : center;
+  background              : transparent;
+
 }
 
 /* @media only screen and (min-width: 768px) {
@@ -45,6 +50,8 @@
   display        : flex;
   align-items    : center;
   justify-content: center;
+  background     : transparent;
+  opacity        : 0.5
 }
 
 .card-content h1 {
@@ -52,9 +59,13 @@
   margin-bottom: 10px;
   text-align   : center;
   align-self   : center;
+  background   : transparent;
+  opacity      : 0.5
 }
 
 .card-content p {
   font-size : 14px;
   text-align: center;
+  background: transparent;
+  opacity   : 0.5
 }
