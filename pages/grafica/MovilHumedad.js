@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+/* import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import _ from 'lodash';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
@@ -19,7 +19,7 @@ function MovilHumedad() {
                 // Destructurar el JSON para obtener los datos
                 const { reads } = response.data.body;
                 // Obtener el último dato del arreglo
-                /*  const filteredData = _.takeRight(reads, 1); */
+           
                 // Asignar el último dato a setData para actualizar el estado y mostrarlo en la gráfica
                 setData(reads);
                 // Indicar que los datos ya se han cargado
@@ -32,13 +32,6 @@ function MovilHumedad() {
         fetchData();
     }, []);
 
-    /*   return (<Layout>
-          <div>
-              {isLoading && <p>Loading...</p>}
-              {hasError && <p>Error al cargar los datos.</p>}
-              {!isLoading && !hasError && <p>Último dato de humedad: {data[0].Humedad}</p>}
-          </div></Layout>
-      ); */
 
     if (isLoading) {
         return <p>Loading...</p>;
@@ -78,4 +71,4 @@ function MovilHumedad() {
     );
 }
 
-export default MovilHumedad;
+export default MovilHumedad; */

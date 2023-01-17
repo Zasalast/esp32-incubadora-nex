@@ -1,4 +1,4 @@
-import React, { useState, useEffect, PureComponent } from 'react';
+/* import React, { useState, useEffect, PureComponent } from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import styles from '../../styles/Grafica.module.css'
 import _ from 'lodash';
@@ -154,4 +154,4 @@ function MovilTemperatura() {
     );
 }
 
-export default MovilTemperatura;
+export default MovilTemperatura; */

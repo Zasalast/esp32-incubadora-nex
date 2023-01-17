@@ -15,9 +15,10 @@ import Layout from '../components/Layout'
 import Header from '../components/Header'
 import CardContainer from '../components/CardContainer'
 import pollito from './../assets/imgpollito.jpg';
+import styled from 'styled-components';
 const inter = Inter({ subsets: ['latin'] })
 
-export default function Home() {
+/* export default function Home() {
   const data3 = { keytabla: "Fecha_hora", dato1: "Temperatura1", dato1: "Temperatura2" }
   return (
     <>
@@ -47,5 +48,39 @@ export default function Home() {
           </Layout>  </div>
       </main>
     </>
-  )
-}
+  ) }*/
+
+const MainContainer = styled.div` display: flex; align - items: center; justify - content: center; height: 80vh; width: 100 %; background - color: #f2f2f2`;;
+
+const WidgetContainer = styled.div` display: flex; align - items: center; justify - content: space - between; width: 90 %; margin: 0 auto`;;
+
+const Widget = styled.div` background-color: white; padding: 16px; width: 48 %; border - radius: 10px; box - shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); margin - bottom: 16px`;;
+
+const WidgetTitle = styled.h2` font-size: 18px; margin: 0; color: black; text - align: center; margin - bottom: 16px`;;
+
+const WidgetData = styled.div` font-size: 36px; color: black; text - align: center`;;
+
+const Home = () => {
+  return (
+    <Layout>
+      <MainContainer>
+        <WidgetContainer>
+          <Widget>
+            <WidgetTitle>Temperatura</WidgetTitle>
+            <WidgetData>
+              <Temperaturawidget />
+            </WidgetData>
+          </Widget>
+          <Widget>
+            <WidgetTitle>Humedad</WidgetTitle>
+            <WidgetData>
+              <HumedadWidget />
+            </WidgetData>
+          </Widget>
+        </WidgetContainer>
+      </MainContainer>
+    </Layout>
+  );
+};
+
+export default Home;

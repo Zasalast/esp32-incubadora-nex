@@ -20,36 +20,6 @@ function GraficaHumedad() {
   });
 
   useEffect(() => {
-    /*    async function fetchData() {
-         try {
-           // Obtener los datos de temperatura y humedad del endpoint
-           const response = await axios.get('https://b2luadwf3k.execute-api.us-east-1.amazonaws.com/reads');
-           let fechaHora = moment();
-           let anio = fechaHora.year();
-           let mes = fechaHora.month();
-           let dia = fechaHora.date();
-           let horas = fechaHora.hours();
-           let minutos = fechaHora.minutes();
-           let segundos = fechaHora.seconds();
-           console.log(` ${dia} /${mes}/${anio}, ${horas}:${minutos}:${segundos}`);
-           const reads = response.data.body;
-           console.log(reads)
-           // Filtar solo los datos necesarios
-           console.log("reads");
-           console.table(reads.reads);
-   
-           setData(reads.reads);
-           // Indicar que los datos ya se han cargado
-           setIsLoading(false);
-         } catch (error) {
-           // Utilizar un manejador de errores global para mostrar un mensaje de error más específico
-   
-   
-           handleError(error);
-           // Indicar que ha ocurrido un error al cargar los datos
-           setHasError(true);
-         }
-       } */
 
     async function fetchData() {
       try {
@@ -137,12 +107,12 @@ function GraficaHumedad() {
           width={360}
           height={360}
           data={data}
-        /*     margin={{
-              top: 5,
-              right: 30,
-              left: 20,
-              bottom: 5,
-            }} */
+          margin={{
+            top: 5,
+            right: 30,
+            left: 20,
+            bottom: 5,
+          }}
         >
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="Fecha_hora" />
@@ -166,12 +136,12 @@ function GraficaHumedad() {
           width={360}
           height={360}
           data={data}
-        /*     margin={{
-              top: 5,
-              right: 30,
-              left: 20,
-              bottom: 5,
-            }} */
+          margin={{
+            top: 5,
+            right: 30,
+            left: 20,
+            bottom: 5,
+          }}
         >
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="Fecha_hora" />

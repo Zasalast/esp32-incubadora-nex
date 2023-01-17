@@ -1,4 +1,4 @@
-import React, { useState, useEffect, PureComponent } from 'react';
+/* import React, { useState, useEffect, PureComponent } from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import styles from '../../styles/Grafica.module.css'
 import _ from 'lodash';
@@ -128,25 +128,16 @@ function MovilGraficas() {
         <Layout>
             <div className={styles.chart}>
                 <div><label>Grafica Msovil:</label>
-                    {/*     <input type="number" name="dataPoints" value={filter.dataPoints} onChange={handleFilterChange} /> */}
+
                     <br />
-                    {/*      <label>Date Range:</label>
-                    <select name="dateRange" value={filter.dateRange} onChange={handleFilterChange}>
-                        <option value="week">Last Week</option>
-                        <option value="month">Last Month</option>
-                    </select> */}
+
                 </div>
                 <ResponsiveContainer width="100%" height={360}>
                     <LineChart
                         width={360}
                         height={360}
                         data={data}
-                    /*     margin={{
-                          top: 5,
-                          right: 30,
-                          left: 20,
-                          bottom: 5,
-                        }} */
+
                     >
                         <CartesianGrid strokeDasharray="3 3" />
                         <XAxis dataKey="Fecha_hora" />
@@ -184,4 +175,4 @@ function MovilGraficas() {
     );
 }
 
-export default MovilGraficas;
+export default MovilGraficas; */

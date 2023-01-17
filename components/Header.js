@@ -29,7 +29,7 @@ const HeaderTitle = styled.h1`
 const Nav = styled.nav`
   display: flex;
   align-items: center;
-    border: 1px solid #d9d9d9;
+   
 `;
 
 const NavLink = styled.a`
