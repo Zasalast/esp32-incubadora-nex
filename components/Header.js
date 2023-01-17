@@ -5,6 +5,7 @@ import Temperaturawidget from '../pages/widgets/TemperaturaWidget';
 import Layout from './Layout';
 import Temperaturawidget2 from '../pages/widgets/TemperaturaWidget2';
 import HumedadWidget2 from '../pages/widgets/HumedadWidget2';
+import { useEffect } from 'react';
 
 const HeaderContainer = styled.div`
   background-color: white;
@@ -16,6 +17,19 @@ const HeaderContainer = styled.div`
   top: 0;
   width: 100%;
   z-index: 10;
+  /* agregando estas propiedades */
+  transition: all 0.3s ease-in-out;
+  transform: translateY(0%);
+  &.scrolled {
+    transform: translateY(-100%);
+  }
+`;
+
+const Headers = styled.h1`
+  position: fixed;
+  top: -100px;
+  width: 100%;
+  transition: top 0.3s ease-in-out;
  
 `;
 
@@ -51,8 +65,29 @@ const NavLink = styled.a`
 
 `;
 
+
 const Header = () => {
   const router = useRouter();
+
+  useEffect(() => {
+    // detectando el evento de scroll
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  const handleScroll = () => {
+    // obteniendo el elemento HeaderContainer
+    const header = document.querySelector('.HeaderContainer');
+    // aplicando la clase "scrolled" si se ha desplazado hacia abajo
+    if (window.scrollY > 0) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  };
+
   return (
     <HeaderContainer className='HeaderContainer'><Nav className='Nav'>
       <HeaderTitle className='HeaderTitle'><NavLink className='NavLink' href="/" onClick={() => router.push('/')}>DSTR</NavLink></HeaderTitle>
