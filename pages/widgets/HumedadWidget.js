@@ -59,9 +59,7 @@ function HumedadWidget2() {
     return (
 
         <>
-            <Card title={lastData.Humedad2} text="Humedad Exterior" />
-
-
+            <Card title={lastData.Humedad1} text="Humedad Criadora" />
         </ >
 
     );
