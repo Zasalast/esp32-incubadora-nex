@@ -1,6 +1,31 @@
+.container {
+  display  : flex;
+  flex-wrap: wrap;
+}
+
+.c1,
+.c2,
+.c3,
+.c4,
+.c5,
+.c6 {
+  width    : 300px;
+  min-width: 150;
+  height   : 200px;
+  border   : 1px solid black;
+}
+
+.c4 {
+  height: auto;
+}
+
+
+
 .card-container {
   display   : flex;
   background: transparent;
+  display   : flex;
+  flex-wrap : wrap;
   opacity   : 0.5
 }
 
@@ -13,6 +38,8 @@
   padding              : 10px;
   margin-right         : 10px;
   background           : transparent;
+  display              : flex;
+  flex-wrap            : wrap;
   opacity              : 0.5
 }
 
@@ -31,17 +58,9 @@
 
 }
 
-/* @media only screen and (min-width: 768px) {
-  .card {
-    width: 40%;
-  }
-}
 
-@media only screen and (min-width: 992px) {
-  .card {
-    width: 30%;
-  }
-} */
+
+
 
 .card-content {
   width          : 80%;
@@ -51,6 +70,8 @@
   align-items    : center;
   justify-content: center;
   background     : transparent;
+  display        : flex;
+  flex-wrap      : wrap;
   opacity        : 0.5
 }
 
@@ -68,4 +89,42 @@
   text-align: center;
   background: transparent;
   opacity   : 0.5
+}
+
+@media only screen and (min-width:600px) {
+  .c1 {
+    width: 25%;
+    order: 1;
+  }
+
+  .c2 {
+    width: 75%;
+    order: 2;
+  }
+
+  .c3 {
+    width: 100%;
+    order: 3;
+  }
+
+  .c4 {
+    width: 100%;
+    order: 4;
+  }
+
+
+
+  .c5 {
+    width: 100%;
+    order: 5;
+  }
+}
+
+@media only screen and (min-width:800px) {
+  .container {
+    width       : 800px;
+    margin-left : auto;
+    margin-right: auto;
+  }
+
 }

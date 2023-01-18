@@ -27,12 +27,12 @@ const BackgroundImage = styled.div` position: absolute; top: 0; left: 0; width: 
 const BackgroundImageImg = styled.img` width: 190%; height: 100 %; object - fit: cover`;;
 
 const WidgetsContainer = styled.div` position: relative; z - index: 1`;;
-const WidgetContainer = styled.div` display: flex; align - items: center; justify - content: space - between; width: 90 %; margin: 0 auto`;;
-const Widget = styled.div` background-color: white; padding: 16px; width: 48 %; border - radius: 10px; box - shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); margin - bottom: 16px`;;
+const WidgetContainer = styled.div` display: flex; align - items: center; justify - content: space - between; width: 100 %; margin: 0 auto`;;
+const Widget = styled.div` background-color: white; padding: 16px; width: 300px; border - radius: 10px; box - shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); margin - bottom: 16px`;;
 
 const WidgetTitle = styled.h2` font-size: 18px; margin: 0; color: black; text - align: center; margin - bottom: 16px`;;
 
-const WidgetData = styled.div` font-size: 36px; color: black; text - align: center`;;
+const WidgetData = styled.div` font-size: 36px; color: black; text - align: center width: 300px; height: 200px;`;;
 
 
 
@@ -50,7 +50,7 @@ const Home = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Layout>
-        <h1>{value}</h1>;
+        <h1>{value}</h1>
         <br /><br /><br /><br /><br />
         <MainContainer>
 
@@ -75,12 +75,9 @@ const Home = () => {
                 <WidgetData>
                   <HumedadWidget2 />
                 </WidgetData>
-              </Widget>
+              </Widget><BackgroundImage><BackgroundImage><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.blogs.es%2F6964d6%2Fpollitos%2F1366_2000.jpg&f=1&nofb=1&ipt=16501d1720f838393c1ed5e31d04c29f859fc14c8ef2d0b33ad4705c021d35d0&ipo=images" alt="pollito" /></BackgroundImage> </BackgroundImage>
             </WidgetContainer>
-          </WidgetsContainer> <BackgroundImage>
-            <BackgroundImageImg src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.blogs.es%2F6964d6%2Fpollitos%2F1366_2000.jpg&f=1&nofb=1&ipt=16501d1720f838393c1ed5e31d04c29f859fc14c8ef2d0b33ad4705c021d35d0&ipo=images" alt="pollito" />
-
-          </BackgroundImage>
+          </WidgetsContainer>
         </MainContainer>
       </Layout>
     </>

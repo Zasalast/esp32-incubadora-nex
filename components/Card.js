@@ -26,14 +26,14 @@ const NavLink = styled.a`
   
 `;
 const Card = ({ title, text }) => {
-    return (
-        <HeaderContainer className='HeaderContainer'><div className={styles.card}>
-            <div className={styles.cardContent}>
-                <h1>{title}</h1>
-                <p>{text}</p>
-            </div>
-        </div><br /></HeaderContainer>
-    );
+  return (
+    <HeaderContainer /* className='HeaderContainer' */><div /* className={styles.card} */>
+      <div /* className={styles.cardContent} */>
+        <h1>{title}</h1>
+        <p>{text}</p>
+      </div>
+    </div><br /></HeaderContainer>
+  );
 };
 
 export default Card;

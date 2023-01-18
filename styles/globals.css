@@ -32,6 +32,10 @@
   --callout-border-rgb: 172, 175, 176;
   --card-rgb          : 180, 185, 188;
   --card-border-rgb   : 131, 134, 135;
+  box-sizing          : border-box;
+  padding             : 0;
+  margin              : 0;
+  font-size           : 62.5%;
 }
 
 @media (prefers-color-scheme: dark) {
