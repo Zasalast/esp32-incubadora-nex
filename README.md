@@ -60,7 +60,7 @@ Introducción:
 El manual de usuario del modelo de criadora de pollos DSTR de la marca DESTER (DSTR) le ayudará a interactuar y utilizar de manera eficiente su criadora. A continuación se presentan los pasos detallados para utilizar la criadora de pollos DSTR:
 # Manual de Usuario de DESTER(DSTR)
 Puede usar e interactuar con el, de la siguiente forma:
-
+[Manual de Usuario de DESTER(DSTR)](https://github.com/Zasalast/esp32-incubadora-nex/blob/main/ManualUsuario.md)
 * Visualizar la temperatura y humedad actual: Puede dar clic en los botones "DSTR" o "Temperatura y Humedad Actual" para visualizar los widgets que muestran los valores actuales de la temperatura y humedad tanto dentro como fuera de la criadora
 
 ![Cabecera](https://github.com/Zasalast/esp32-incubadora-nex/blob/main/assets/Header.jpg)
