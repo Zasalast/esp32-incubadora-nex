@@ -13,6 +13,7 @@ Puede usar e interactuar con el, de la siguiente forma:
 [Grafica](https://esp32-incubadora-7hkboj3a9-zasalast.vercel.app/grafica/GraficaHumedad)
 El dato visto en número, si es humedad es el procentaje de Humedad, Si es Temperatura, se encuentra en grados centigrados.
 ![Card](https://github.com/Zasalast/esp32-incubadora-nex/blob/main/assets/card.jpg)
+
 [Vea El dato actual](https://esp32-incubadora-7hkboj3a9-zasalast.vercel.app/)
 
 Recomendación de uso: Se recomienda utilizar el dispositivo en modo horizontal para una mejor experiencia visual.
